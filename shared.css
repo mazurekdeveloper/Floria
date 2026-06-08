@@ -275,5 +275,12 @@ a:focus-visible, button:focus-visible { outline: 3px solid #6f3a2d; outline-offs
   .wedding-process-steps { grid-template-columns: 1fr; }
   .wedding-services { padding: 48px 5vw; }
   .wedding-cta { padding: 60px 5vw; }
-  .footer-top { gap: 28px; }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 20px;
+  }
+  .footer-top > div:first-child {
+    grid-column: 1 / -1;
+  }
 }
