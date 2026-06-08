@@ -14,14 +14,14 @@
   <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
   <meta property="og:title" content="Kwiaciarnia Rybnik Floria | Kwiaty i bukiety z dostawą" />
   <meta property="og:description" content="Zamów świeże bukiety, kwiaty na telefon Rybnik i florystykę ślubną w lokalnej kwiaciarni Floria. Dostawa kwiatów Rybnik i okolice." />
-  <meta property="og:image" content="https://kwiaciarniafloria.pl/og-floria-rybnik.jpg" />
+  <meta property="og:image" content="https://kwiaciarniafloria.pl/images/logo-floria-nav.png" />
   <meta property="og:url" content="https://kwiaciarniafloria.pl/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Kwiaciarnia Rybnik Floria | Kwiaty Rybnik" />
   <meta name="twitter:description" content="Bukiety, poczta kwiatowa Rybnik, dostawa kwiatów Rybnik i florystyka ślubna od lokalnej kwiaciarni Floria." />
-  <meta name="twitter:image" content="https://kwiaciarniafloria.pl/og-floria-rybnik.jpg" />
+  <meta name="twitter:image" content="https://kwiaciarniafloria.pl/images/logo-floria-nav.png" />
   <link rel="preload" href="images/logo-floria-nav.png" as="image" />
   <script type="application/ld+json">
   {
@@ -296,6 +296,9 @@
       position: relative;
       min-height: 100vh;
       background: var(--blush);
+      background-image: url('images/IMG-20260608-WA0401.jpg');
+      background-size: cover;
+      background-position: center 30%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -320,12 +323,19 @@
       letter-spacing: -.04em;
     }
 
-    /* Gradient overlay — dół ściemnia do bieli */
+    /* Główny overlay — przyciemnia całe zdjęcie */
+    .hero-photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(245,230,224,.72);
+      pointer-events: none;
+    }
+    /* Gradient overlay — dół */
     .hero-overlay {
       position: absolute;
       bottom: 0; left: 0; right: 0;
-      height: 35%;
-      background: linear-gradient(to bottom, transparent, var(--blush));
+      height: 40%;
+      background: linear-gradient(to bottom, transparent, rgba(245,230,224,.95));
       pointer-events: none;
     }
     /* Gradient overlay — góra */
@@ -333,7 +343,7 @@
       position: absolute;
       top: 72px; left: 0; right: 0;
       height: 20%;
-      background: linear-gradient(to top, transparent, rgba(245,230,224,.5));
+      background: linear-gradient(to top, transparent, rgba(245,230,224,.6));
       pointer-events: none;
     }
 
@@ -401,15 +411,6 @@
       width: 40px;
       height: 1px;
       background: var(--petal);
-    }
-
-    /* Logo SVG w hero */
-    .hero-logo-svg {
-      width: min(260px, 50vw);
-      margin-bottom: 20px;
-      filter: drop-shadow(0 12px 40px rgba(26,18,17,.12));
-      animation: fadeSlideDown 1s ease both;
-      animation-delay: .2s;
     }
 
     /* Wielki napis FLORIA */
@@ -511,16 +512,43 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
-      margin-top: 18px;
-      color: var(--ink-soft);
-      font-size: .78rem;
-      line-height: 1.5;
+      align-items: center;
+      gap: 0;
+      margin-top: 28px;
+      animation: fadeSlideDown 1s ease both;
+      animation-delay: .82s;
     }
-    .hero-proof span {
-      border: 1px solid rgba(212,168,152,.55);
-      background: rgba(253,250,249,.42);
-      padding: 8px 12px;
+    .hero-proof-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 22px;
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 400;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      white-space: nowrap;
+    }
+    .hero-proof-item svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--petal);
+      fill: none;
+      stroke-width: 2;
+      flex-shrink: 0;
+    }
+    .hero-proof-sep {
+      width: 1px;
+      height: 20px;
+      background: rgba(212,168,152,.45);
+      flex-shrink: 0;
+    }
+    @media (max-width: 768px) {
+      .hero-proof { gap: 12px 0; }
+      .hero-proof-item { padding: 0 14px; font-size: .64rem; letter-spacing: .14em; }
+      .hero-proof-sep { height: 16px; }
     }
 
     /* Statystyki w dole hero */
@@ -769,11 +797,21 @@
     .about-visual {
       position: relative;
     }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
     .about-card {
       background: var(--white);
-      padding: 48px 40px;
-      position: relative;
-      box-shadow: 0 24px 80px rgba(26,18,17,.08);
+      padding: 36px 32px;
+      position: absolute;
+      bottom: -24px;
+      right: -24px;
+      max-width: 300px;
+      box-shadow: 0 24px 80px rgba(26,18,17,.12);
     }
     .about-card::before {
       content: '"';
@@ -893,6 +931,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
     }
 
     .product-emoji {
@@ -902,6 +942,16 @@
       filter: drop-shadow(0 8px 24px rgba(26,18,17,.15));
     }
     .product-card:hover .product-emoji { transform: scale(1.08) rotate(-3deg); }
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform .55s ease;
+    }
+    .product-card:hover .product-img { transform: scale(1.06); }
 
     .product-badge {
       position: absolute;
@@ -1032,9 +1082,20 @@
     .feature-item:hover { background: rgba(201,128,106,.08); }
 
     .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 20px;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 24px;
       display: block;
+      color: var(--petal);
+    }
+    .feature-icon svg {
+      width: 38px;
+      height: 38px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
     .feature-name {
       font-family: var(--serif);
@@ -1211,11 +1272,18 @@
     }
     .contact-value a:hover { color: var(--petal); }
 
+    .contact .btn-primary,
+    .contact .btn-outline {
+      min-width: 130px;
+      flex: 1;
+      padding: 14px 20px;
+    }
+
     .hours-grid {
       margin-top: 36px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px 24px;
+      grid-template-columns: 1fr;
+      gap: 0;
     }
     .hours-row {
       display: flex;
@@ -1227,6 +1295,169 @@
     }
     .hours-row .day { font-weight: 400; }
     .hours-row .time { color: var(--petal); }
+
+    /* ───── ORDER STEPS ───── */
+    .order-steps {
+      padding: 100px 8vw;
+      background: #fbf4f1;
+      border-top: 1px solid var(--blush-mid);
+    }
+    .order-steps-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 72px;
+    }
+    .order-steps-header .section-eyebrow { justify-content: center; }
+    .order-steps-header p {
+      font-size: .95rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      margin-top: 16px;
+    }
+    .order-steps-grid {
+      display: grid;
+      grid-template-columns: 1fr 52px 1fr 52px 1fr;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .order-step {
+      background: var(--white);
+      padding: 40px 32px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .order-step-num {
+      font-family: var(--serif);
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(212,168,152,.15);
+      line-height: 1;
+      position: absolute;
+      top: 14px;
+      right: 22px;
+      pointer-events: none;
+      user-select: none;
+    }
+    .order-step-icon {
+      width: 34px;
+      height: 34px;
+      margin-bottom: 22px;
+      color: var(--petal);
+    }
+    .order-step-icon svg {
+      width: 34px;
+      height: 34px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .order-step-title {
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .order-step-desc {
+      font-size: .87rem;
+      color: var(--ink-soft);
+      line-height: 1.85;
+    }
+    .order-step-desc strong { color: var(--ink); font-weight: 500; }
+    .order-step-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 50px;
+    }
+    .order-step-arrow svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--blush-deep);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .order-steps-cta {
+      text-align: center;
+      margin-top: 60px;
+    }
+    .order-steps-cta .cta-wa { background: var(--ink); color: var(--white); }
+    .order-steps-cta .cta-wa:hover { background: var(--petal); color: var(--white); }
+    .order-steps-note {
+      margin-top: 14px;
+      font-size: .76rem;
+      color: var(--blush-deep);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .order-info-box {
+      max-width: 1100px;
+      margin: 40px auto 0;
+      background: var(--white);
+      border-left: 3px solid var(--petal);
+      padding: 36px 40px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 48px;
+      align-items: start;
+    }
+    .order-info-label {
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--petal);
+      white-space: nowrap;
+      padding-top: 3px;
+    }
+    .order-info-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 48px;
+    }
+    .order-info-list li {
+      font-family: var(--sans);
+      font-size: .87rem;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .order-info-list li::before {
+      content: '✦';
+      color: var(--petal);
+      font-size: .48rem;
+      margin-top: .45em;
+      flex-shrink: 0;
+    }
+    .order-info-list li em {
+      font-style: normal;
+      color: var(--blush-deep);
+      font-size: .81rem;
+    }
+    @media (max-width: 900px) {
+      .order-steps-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+      }
+      .order-step-arrow { display: none; }
+      .order-step + .order-step { margin-top: 2px; }
+      .order-steps-header { margin-bottom: 48px; }
+      .order-info-box {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 28px 24px;
+      }
+      .order-info-list { grid-template-columns: 1fr; gap: 10px; }
+    }
 
     /* ───── FOOTER ───── */
     footer {
@@ -1465,9 +1696,12 @@
       right: 18px;
       bottom: 18px;
       z-index: 120;
-      display: flex;
+      display: none;
       gap: 10px;
       align-items: center;
+    }
+    @media (max-width: 760px) {
+      .sticky-cta { display: flex; }
     }
     .sticky-cta a {
       min-width: 54px;
@@ -1523,10 +1757,11 @@
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#main-content" class="nav-logo" aria-label="Floria Kwiaciarnia Rybnik - strona główna"><img src="images/logo-floria-nav.png" alt="Floria Kwiaciarnia Rybnik" width="160" height="80" loading="eager" decoding="async" fetchpriority="high" /></a>
+  <a href="#" class="nav-logo" aria-label="Floria Kwiaciarnia Rybnik - strona główna"><img src="images/logo-floria-nav.png" alt="Floria Kwiaciarnia Rybnik" width="160" height="80" loading="eager" decoding="async" fetchpriority="high" /></a>
   <ul class="nav-links">
     <li><a href="#o-nas">O nas</a></li>
     <li><a href="#sklep">Sklep</a></li>
+    <li><a href="slub.html">Ślub</a></li>
     <li><a href="#opinie">Opinie</a></li>
     <li><a href="#kontakt">Kontakt</a></li>
   </ul>
@@ -1539,6 +1774,7 @@
 <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Menu mobilne">
   <a href="#o-nas"   onclick="closeMenu()">O nas</a>
   <a href="#sklep"   onclick="closeMenu()">Sklep</a>
+  <a href="slub.html" onclick="closeMenu()">Ślub</a>
   <a href="#opinie"  onclick="closeMenu()">Opinie</a>
   <a href="#kontakt" onclick="closeMenu()">Kontakt</a>
   <a href="https://wa.me/48502906966" target="_blank" rel="noopener noreferrer" style="color:var(--petal);margin-top:8px;">Zamów przez WhatsApp →</a>
@@ -1550,6 +1786,7 @@
 <section class="hero">
 
   <!-- Tło dekoracyjne -->
+  <div class="hero-photo-overlay"></div>
   <div class="hero-bg-letter">F</div>
   <div class="hero-overlay-top"></div>
   <div class="hero-overlay"></div>
@@ -1568,8 +1805,6 @@
   <div class="hero-content">
     <div class="hero-eyebrow">Kwiaciarnia Rybnik</div>
 
-    
-
     <h1 class="hero-brand">FLORIA <span class="sr-only">Kwiaciarnia Rybnik - kwiaty, bukiety i dostawa kwiatów</span></h1>
     <p class="hero-brand-sub">Kwiaciarnia</p>
 
@@ -1586,9 +1821,20 @@
       <a href="tel:+48537392078" class="btn-outline" aria-label="Zadzwoń do Kwiaciarni Floria w Rybniku pod numer +48 537 392 078">Zadzwoń: +48 537 392 078</a>
     </div>
     <div class="hero-proof" aria-label="Najważniejsze informacje o zamówieniu">
-      <span>Dostawa na terenie Rybnika</span>
-      <span>Odbiór przy Zebrzydowickiej 79</span>
-      <span>Doradztwo florysty</span>
+      <div class="hero-proof-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Dostawa tego samego dnia
+      </div>
+      <div class="hero-proof-sep" aria-hidden="true"></div>
+      <div class="hero-proof-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Odbiór ul. Zebrzydowicka 79
+      </div>
+      <div class="hero-proof-sep" aria-hidden="true"></div>
+      <div class="hero-proof-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        Doradztwo florysty
+      </div>
     </div>
   </div>
 
@@ -1622,7 +1868,7 @@
 <div class="trust-bar" aria-label="Powody, dla których warto zamówić we Florii">
   <div class="trust-item">Dostawa tego samego dnia</div>
   <div class="trust-item">Lokalna kwiaciarnia</div>
-  <div class="trust-item">Płatność online</div>
+  <div class="trust-item">Płatność przelewem</div>
 </div>
 
 <!-- MARQUEE -->
@@ -1647,6 +1893,7 @@
 <!-- O NAS -->
 <section class="about" id="o-nas">
   <div class="about-visual fade-up">
+    <img src="images/IMG-20260608-WA0391.jpg" alt="Kwiaciarnia Floria Rybnik" class="about-photo" loading="lazy">
     <div class="about-card">
       <div class="about-quote">
         Każdy bukiet to historia. Tworzymy ją razem z Tobą — z pasji do kwiatów i miłości do piękna.
@@ -1699,22 +1946,39 @@
   </div>
   <div class="features-grid fade-up">
     <div class="feature-item">
-      <span class="feature-icon">🌸</span>
+      <span class="feature-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 22c-4.97 0-9-3.58-9-8 0-3.87 2.69-7.18 6.5-8.28C10.83 5.24 12 4 12 4s1.17 1.24 2.5 1.72C18.31 6.82 21 10.13 21 14c0 4.42-4.03 8-9 8z"/>
+          <path d="M12 4v4"/>
+        </svg>
+      </span>
       <div class="feature-name">Świeżość gwarantowana</div>
       <p class="feature-desc">Kwiaty dostarczamy bezpośrednio od sprawdzonych dostawców. Zawsze świeże, zawsze piękne.</p>
     </div>
     <div class="feature-item">
-      <span class="feature-icon">💬</span>
+      <span class="feature-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+      </span>
       <div class="feature-name">Zamów przez WhatsApp</div>
       <p class="feature-desc">Prosty i szybki kontakt. Piszesz, my działamy. Odpowiedź w kilka minut.</p>
     </div>
     <div class="feature-item">
-      <span class="feature-icon">🎨</span>
+      <span class="feature-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
+        </svg>
+      </span>
       <div class="feature-name">Indywidualne projekty</div>
       <p class="feature-desc">Tworzysz swoją wizję — my ją realizujemy. Żaden bukiet nie jest taki sam.</p>
     </div>
     <div class="feature-item">
-      <span class="feature-icon">🚗</span>
+      <span class="feature-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </span>
       <div class="feature-name">Dostawa do domu</div>
       <p class="feature-desc">Dowozimy kwiaty bezpośrednio pod wskazany adres, w ustalonym terminie. To wygodna poczta kwiatowa Rybnik dla ważnych okazji.</p>
     </div>
@@ -1768,7 +2032,7 @@
     </div>
   </div>
   <div style="text-align:center;margin-top:48px;" class="fade-up">
-    <a href="https://www.google.com/search?q=🌸Kwiaciarnia+Floria+Opinie" target="_blank" rel="noopener noreferrer" class="google-reviews-btn">
+    <a href="https://www.google.com/search?q=Kwiaciarnia+Floria+Rybnik+opinie" target="_blank" rel="noopener noreferrer" class="google-reviews-btn">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right:8px;">
         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
         <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -1800,21 +2064,82 @@
 </div>
 
 
-<section class="seo-section alt" id="dostawa-kwiatow-rybnik">
-  <div class="seo-grid">
-    <div>
-      <div class="section-eyebrow">Dostawa lokalna</div>
-      <h2 class="section-title">Dostawa kwiatów<br><em>Rybnik</em></h2>
+<section class="order-steps" id="dostawa-kwiatow-rybnik">
+  <div class="order-steps-header fade-up">
+    <div class="section-eyebrow">Jak zamówić</div>
+    <h2 class="section-title">Dostawa kwiatów Rybnik<br><em>proste jak WhatsApp</em></h2>
+    <p>Nie mamy koszyka ani płatności kartą. Piszesz do nas, razem wybieramy bukiet — potem przelew i gotowe. Szybko, wygodnie, bez komplikacji.</p>
+  </div>
+
+  <div class="order-steps-grid fade-up">
+
+    <div class="order-step">
+      <span class="order-step-num">01</span>
+      <div class="order-step-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.11 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 15.92z"/>
+        </svg>
+      </div>
+      <h3 class="order-step-title">Napisz lub zadzwoń</h3>
+      <p class="order-step-desc">Skontaktuj się przez WhatsApp lub zadzwoń pod <strong>+48 537 392 078</strong>. Opisz okazję, preferencje kolorystyczne i orientacyjny budżet.</p>
     </div>
-    <div class="seo-copy">
-      <p>Floria realizuje dostawę kwiatów Rybnik pod wskazany adres: do domu, pracy, restauracji, sali weselnej lub na uroczystość rodzinną. Przyjmujemy zamówienia telefonicznie, przez WhatsApp oraz online, a każdy bukiet przygotowujemy indywidualnie.</p>
-      <p>Jeśli potrzebna jest poczta kwiatowa Rybnik albo kwiaty na telefon Rybnik, podpowiemy najlepszy styl kompozycji, dopasujemy kolorystykę i ustalimy wygodny termin doręczenia.</p>
-      <ul class="seo-points">
-        <li>Dostawa tego samego dnia zależnie od dostępności kwiatów i godziny zamówienia.</li>
-        <li>Bukiety na urodziny, rocznicę, ślub, podziękowanie i kondolencje.</li>
-        <li>Telefoniczna konsultacja z florystą przed realizacją zamówienia.</li>
-      </ul>
+
+    <div class="order-step-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
     </div>
+
+    <div class="order-step">
+      <span class="order-step-num">02</span>
+      <div class="order-step-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+          <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+          <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+          <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+        </svg>
+      </div>
+      <h3 class="order-step-title">Dobieramy bukiet</h3>
+      <p class="order-step-desc">Florysta zaproponuje najlepszą kompozycję z dostępnych kwiatów sezonowych. Ustalamy styl, kolorystykę i termin realizacji — poczta kwiatowa Rybnik tego samego dnia przy wczesnym zamówieniu.</p>
+    </div>
+
+    <div class="order-step-arrow" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+
+    <div class="order-step">
+      <span class="order-step-num">03</span>
+      <div class="order-step-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <line x1="2" y1="10" x2="22" y2="10"/>
+        </svg>
+      </div>
+      <h3 class="order-step-title">Przelew i dostawa</h3>
+      <p class="order-step-desc">Przesyłamy numer konta bankowego do przelewu. Po zaksięgowaniu bukiet dowozimy pod wskazany adres lub czeka na odbiór przy <strong>ul. Zebrzydowickiej 79</strong> w Rybniku.</p>
+    </div>
+
+  </div>
+
+  <div class="order-info-box fade-up">
+    <span class="order-info-label">Podaj w wiadomości</span>
+    <ul class="order-info-list">
+      <li>Imię i nazwisko odbiorcy</li>
+      <li>Numer telefonu do odbiorcy</li>
+      <li>Dokładny adres dostawy</li>
+      <li>Numer telefonu do zamawiającego <em>(do kontaktu w razie potrzeby)</em></li>
+      <li>Data doręczenia</li>
+      <li>Wygodny 3-godzinny przedział czasowy <em>np. 9:00–12:00</em></li>
+    </ul>
+  </div>
+
+  <div class="order-steps-cta fade-up">
+    <a href="https://wa.me/48502906966?text=Dzień%20dobry!%20Chcę%20zamówić%20bukiet%20w%20Rybniku." class="cta-wa" target="_blank" rel="noopener noreferrer" aria-label="Napisz do Kwiaciarni Floria na WhatsApp">
+      <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      Zamów teraz przez WhatsApp
+    </a>
+    <p class="order-steps-note">Odpowiadamy w kilka minut · Dostawa w Rybniku i okolicach · Płatność przelewem bankowym</p>
   </div>
 </section>
 
@@ -1840,7 +2165,7 @@
         <p>Odwiedź nas przy ul. Zebrzydowickiej 79 w Rybniku. Na miejscu wybierzesz świeże kwiaty Rybnik, zamówisz bukiet lub omówisz większą realizację.</p>
       </div>
     </div>
-    <iframe class="map-frame" title="Mapa dojazdu do Kwiaciarni Floria w Rybniku" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=ul.%20Zebrzydowicka%2079%2C%2044-217%20Rybnik%2C%20Polska&output=embed"></iframe>
+    <iframe class="map-frame" title="Mapa dojazdu do Kwiaciarni Floria w Rybniku" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=ul.+Zebrzydowicka+79,+Rybnik&output=embed&hl=pl&z=15"></iframe>
   </div>
 </section>
 
@@ -1959,7 +2284,7 @@
       <h4>Oferta</h4>
       <ul>
         <li><a href="#sklep">Bukiety romantyczne</a></li>
-        <li><a href="#sklep">Florystyka ślubna</a></li>
+        <li><a href="slub.html">Florystyka ślubna</a></li>
         <li><a href="#sklep">Kompozycje okolicznościowe</a></li>
         <li><a href="#sklep">Dekoracje eventowe</a></li>
       </ul>
@@ -2009,7 +2334,9 @@
       oldPrice: null,
       badge: 'Bestseller',
       badgeType: 'badge-hot',
+      img: 'images/IMG-20260608-WA0166.jpg',
       emoji: '🌹',
+      href: 'bukiet-romantyczny-poranek.html',
       msg: 'Chcę zamówić bukiet "Romantyczny Poranek" (129 zł).'
     },
     {
@@ -2022,7 +2349,9 @@
       oldPrice: 179,
       badge: 'Promocja',
       badgeType: 'badge-sale',
+      img: 'images/IMG-20260608-WA0248.jpg',
       emoji: '🌷',
+      href: 'bukiet-wiosenny-ogrod.html',
       msg: 'Chcę zamówić bukiet "Wiosenny Ogród" (149 zł).'
     },
     {
@@ -2035,7 +2364,9 @@
       oldPrice: null,
       badge: 'Nowość',
       badgeType: 'badge-new',
+      img: 'images/IMG-20260608-WA0210.jpg',
       emoji: '💐',
+      href: 'elegancja-w-bieli.html',
       msg: 'Chcę zamówić bukiet ślubny "Elegancja w Bieli" (249 zł).'
     },
     {
@@ -2048,7 +2379,9 @@
       oldPrice: null,
       badge: null,
       badgeType: '',
+      img: 'images/IMG-20260608-WA0220.jpg',
       emoji: '🌺',
+      href: 'rozane-marzenie.html',
       msg: 'Chcę zamówić "Różane Marzenie" (109 zł).'
     },
     {
@@ -2061,7 +2394,9 @@
       oldPrice: null,
       badge: null,
       badgeType: '',
+      img: 'images/IMG-20260608-WA0345.jpg',
       emoji: '🌼',
+      href: 'polne-sny.html',
       msg: 'Chcę zamówić bukiet "Polne Sny" (89 zł).'
     },
     {
@@ -2074,7 +2409,9 @@
       oldPrice: null,
       badge: 'Premium',
       badgeType: 'badge-hot',
+      img: 'images/IMG-20260608-WA0328.jpg',
       emoji: '🌸',
+      href: 'luksusowa-piwonia.html',
       msg: 'Chcę zamówić "Luksusową Piwonię" (189 zł).'
     }
   ];
@@ -2086,16 +2423,18 @@
     const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
     grid.innerHTML = filtered.map(p => `
       <div class="product-card fade-up">
-        <div class="product-img-wrap">
-          <div class="product-emoji">${p.emoji}</div>
+        <a href="${p.href || '#sklep'}" class="product-img-wrap" aria-label="Zobacz ${p.name}">
+          ${p.img
+            ? `<img src="${p.img}" alt="${p.name}" class="product-img" loading="lazy">`
+            : `<div class="product-emoji">${p.emoji}</div>`}
           ${p.badge ? `<div class="product-badge ${p.badgeType}">${p.badge}</div>` : ''}
           <div class="product-overlay">
-            <a href="https://wa.me/${WA_NUMBER}?text=${encodeURIComponent('Dzień dobry! ' + p.msg)}" class="overlay-btn" target="_blank" rel="noopener noreferrer">Kup Teraz</a>
+            <span class="overlay-btn">Zobacz bukiet</span>
           </div>
-        </div>
+        </a>
         <div class="product-info">
           <div class="product-category">${p.categoryLabel}</div>
-          <div class="product-name">${p.name}</div>
+          <a href="${p.href || '#sklep'}" class="product-name" style="text-decoration:none;color:inherit;">${p.name}</a>
           <div class="product-desc">${p.desc}</div>
           <div class="product-price-row">
             <div class="product-price">
@@ -2123,16 +2462,17 @@
   });
 
   // ── SCROLL ANIMATIONS ──
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        en.target.classList.add('visible');
+        fadeObserver.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
   function observeFadeUps() {
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(en => {
-        if (en.isIntersecting) {
-          en.target.classList.add('visible');
-          obs.unobserve(en.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => obs.observe(el));
+    document.querySelectorAll('.fade-up:not(.visible)').forEach(el => fadeObserver.observe(el));
   }
 
   // ── NAV SCROLL ──
