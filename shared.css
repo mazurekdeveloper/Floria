@@ -24,8 +24,8 @@ body { background: var(--white); color: var(--ink); font-family: var(--sans); fo
 ::-webkit-scrollbar-thumb { background: var(--petal); }
 
 /* ── NAV ── */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 72px; background: rgba(253,250,249,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--blush-mid); transition: box-shadow .3s; }
-nav.scrolled { box-shadow: 0 2px 24px rgba(26,18,17,.06); }
+#mainNav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; height: 72px; background: rgba(253,250,249,.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--blush-mid); transition: box-shadow .3s; }
+#mainNav.scrolled { box-shadow: 0 2px 24px rgba(26,18,17,.06); }
 .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; letter-spacing: .14em; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; padding: 2px 0; }
 .nav-logo img { height: 54px; width: auto; display: block; object-fit: contain; transition: opacity .3s; }
 .nav-logo:hover img { opacity: .75; }
@@ -225,13 +225,34 @@ a:focus-visible, button:focus-visible { outline: 3px solid #6f3a2d; outline-offs
   .wedding-process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
 @media (max-width: 600px) {
-  .product-hero { padding: 100px 6vw 48px; }
-  .product-gallery, .product-info-section { padding: 56px 6vw; }
-  .wedding-gallery { padding: 64px 6vw; }
+  /* hero */
+  .product-hero { padding: 88px 5vw 36px; min-height: unset; }
+  .product-hero-title { font-size: clamp(2.2rem, 11vw, 3.2rem); }
+  .product-hero-price { font-size: 1.6rem; }
+  .product-hero-meta { gap: 14px; margin-top: 12px; }
+  /* breadcrumb */
+  .breadcrumb { font-size: .65rem; gap: 5px; margin-bottom: 14px; flex-wrap: wrap; }
+  /* gallery */
+  .product-gallery { padding: 32px 5vw; }
+  .product-gallery-inner { gap: 8px; }
+  .product-gallery-main img { max-height: 420px; }
+  .product-gallery-thumb img { aspect-ratio: 3/2; }
+  /* info */
+  .product-info-section { padding: 40px 5vw; }
+  .product-info-inner { gap: 32px; }
+  .product-info-desc p { font-size: .92rem; }
+  .product-price-big { font-size: 2.4rem; }
+  .product-cta-title { font-size: 1.6rem; }
+  .btn-primary, .btn-outline { padding: 16px 28px; font-size: .72rem; }
+  /* back */
+  .back-section { padding: 32px 5vw; }
+  /* wedding */
+  .wedding-hero { padding: 88px 5vw 56px; min-height: 60vh; }
+  .wedding-gallery { padding: 48px 5vw; }
   .wedding-gallery-grid { grid-template-columns: 1fr; }
   .w-item.wide { grid-column: span 1; }
   .wedding-process-steps { grid-template-columns: 1fr; }
-  .wedding-services { padding: 64px 6vw; }
-  .wedding-cta { padding: 72px 6vw; }
-  .back-section { padding: 36px 6vw; }
+  .wedding-services { padding: 48px 5vw; }
+  .wedding-cta { padding: 60px 5vw; }
+  .footer-top { gap: 28px; }
 }
