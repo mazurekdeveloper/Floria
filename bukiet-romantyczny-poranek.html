@@ -6,6 +6,8 @@
   <title>Romantyczny Poranek — Bukiet kwiatów | Floria Kwiaciarnia Rybnik</title>
   <meta name="description" content="Romantyczny bukiet z różowych peonii, hortensji i delikatnych róż. Zamów przez WhatsApp — dostawa kwiatów Rybnik tego samego dnia. Floria Kwiaciarnia Rybnik."/>
   <link rel="canonical" href="https://kwiaciarniafloria.pl/bukiet-romantyczny-poranek.html"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
   <link rel="stylesheet" href="shared.css"/>
 </head>
 <body>
@@ -13,7 +15,7 @@
 
 <nav id="mainNav">
   <a href="index.html" class="nav-logo" aria-label="Floria – strona główna">
-    <img src="images/logo-floria-nav.png" alt="Floria Kwiaciarnia Rybnik" width="160" height="80" loading="eager"/>
+    <img src="images/logo-floria-nav.webp" alt="Floria Kwiaciarnia Rybnik" width="160" height="80" loading="eager"/>
   </a>
   <ul class="nav-links">
     <li><a href="index.html#o-nas">O nas</a></li>
@@ -58,13 +60,13 @@
 <section class="product-gallery">
   <div class="product-gallery-inner">
     <div class="product-gallery-main fade-up">
-      <img src="images/IMG-20260608-WA0166.jpg" alt="Romantyczny Poranek — bukiet różowych kwiatów Floria Rybnik" loading="eager"/>
+      <img src="images/IMG-20260608-WA0166.webp" alt="Romantyczny Poranek — bukiet różowych kwiatów Floria Rybnik" loading="eager"/>
     </div>
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0249.jpg" alt="Bukiet romantyczny — różowe róże i hortensje" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0249.webp" alt="Bukiet romantyczny — różowe róże i hortensje" loading="lazy"/>
     </div>
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0205.jpg" alt="Bukiet romantyczny — piwonie i kwiaty sezonowe" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0205.webp" alt="Bukiet romantyczny — piwonie i kwiaty sezonowe" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -97,13 +99,13 @@
 <section class="product-gallery" style="padding-top:0;">
   <div class="product-gallery-inner" style="grid-template-columns:repeat(3,1fr);grid-template-rows:auto;">
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0155.jpg" alt="Bukiet romantyczny — mieszanka pastelowych kwiatów" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0155.webp" alt="Bukiet romantyczny — mieszanka pastelowych kwiatów" loading="lazy"/>
     </div>
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0163.jpg" alt="Romantyczny bukiet z białymi różami i lawendą" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0163.webp" alt="Romantyczny bukiet z białymi różami i lawendą" loading="lazy"/>
     </div>
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0170.jpg" alt="Luksusowy bukiet piwonii i stokrotek" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0170.webp" alt="Luksusowy bukiet piwonii i stokrotek" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -161,7 +163,7 @@
 </a>
 
 <script>
-  window.addEventListener('scroll', () => { document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40); });
+  window.addEventListener('scroll', () => { document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
   function toggleMenu() { const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger'), o = m.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); b.setAttribute('aria-label', o ? 'Zamknij menu' : 'Otwórz menu'); }
   function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); const b = document.getElementById('hamburger'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Otwórz menu'); }
   const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
