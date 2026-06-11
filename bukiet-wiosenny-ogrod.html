@@ -6,6 +6,8 @@
   <title>Wiosenny Ogród — Sezonowy bukiet kwiatów | Floria Kwiaciarnia Rybnik</title>
   <meta name="description" content="Wiosenny bukiet z ranunkułów, tulipanów i eustomów w pastelowej palecie. Zamów przez WhatsApp — dostawa kwiatów Rybnik tego samego dnia. Floria Kwiaciarnia."/>
   <link rel="canonical" href="https://kwiaciarniafloria.pl/bukiet-wiosenny-ogrod.html"/>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
   <link rel="stylesheet" href="shared.css"/>
 </head>
 <body>
@@ -13,7 +15,7 @@
 
 <nav id="mainNav">
   <a href="index.html" class="nav-logo" aria-label="Floria – strona główna">
-    <img src="images/logo-floria-nav.png" alt="Floria Kwiaciarnia Rybnik" width="160" height="80" loading="eager"/>
+    <img src="images/logo-floria-nav.webp" alt="Floria Kwiaciarnia Rybnik" width="160" height="80" loading="eager"/>
   </a>
   <ul class="nav-links">
     <li><a href="index.html#o-nas">O nas</a></li>
@@ -51,13 +53,13 @@
 <section class="product-gallery">
   <div class="product-gallery-inner">
     <div class="product-gallery-main fade-up">
-      <img src="images/IMG-20260608-WA0248.jpg" alt="Wiosenny Ogród — kolorowy bukiet wiosenny Floria Rybnik" loading="eager"/>
+      <img src="images/IMG-20260608-WA0248.webp" alt="Wiosenny Ogród — kolorowy bukiet wiosenny Floria Rybnik" loading="eager"/>
     </div>
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0158.jpg" alt="Bukiet wiosenny — gerbery i hortensja niebieska" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0158.webp" alt="Bukiet wiosenny — gerbery i hortensja niebieska" loading="lazy"/>
     </div>
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0167.jpg" alt="Kolorowy wiosenny bukiet z ranunkułami" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0167.webp" alt="Kolorowy wiosenny bukiet z ranunkułami" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -88,13 +90,13 @@
 <section class="product-gallery" style="padding-top:0;">
   <div class="product-gallery-inner" style="grid-template-columns:repeat(3,1fr);grid-template-rows:auto;">
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0180.jpg" alt="Wiosenna kompozycja z ranunkułami i lawendą" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0180.webp" alt="Wiosenna kompozycja z ranunkułami i lawendą" loading="lazy"/>
     </div>
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0185.jpg" alt="Flower box z wiosennych kwiatów" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0185.webp" alt="Flower box z wiosennych kwiatów" loading="lazy"/>
     </div>
     <div class="product-gallery-thumb fade-up">
-      <img src="images/IMG-20260608-WA0197.jpg" alt="Wiosenna kompozycja w koszu — bukiet Floria" loading="lazy"/>
+      <img src="images/IMG-20260608-WA0197.webp" alt="Wiosenna kompozycja w koszu — bukiet Floria" loading="lazy"/>
     </div>
   </div>
 </section>
@@ -125,7 +127,7 @@
 </a>
 
 <script>
-  window.addEventListener('scroll', () => { document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40); });
+  window.addEventListener('scroll', () => { document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40); }, { passive: true });
   function toggleMenu() { const m = document.getElementById('mobileMenu'), b = document.getElementById('hamburger'), o = m.classList.toggle('open'); b.setAttribute('aria-expanded', String(o)); b.setAttribute('aria-label', o ? 'Zamknij menu' : 'Otwórz menu'); }
   function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); const b = document.getElementById('hamburger'); b.setAttribute('aria-expanded','false'); b.setAttribute('aria-label','Otwórz menu'); }
   const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: 0.1 });
